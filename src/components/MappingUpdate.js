@@ -7,7 +7,7 @@ function MappingUpdate() {
     // const thingsArray = ['Thing 1', 'Thing 2'];
 
     //? A "useState" variable is another way to track information/data, but if React see's a change, It will re-render/update this functional component
-    const [things, setThings] = React.useState([])
+    const [things, setThings] = React.useState(['Thing 1', 'Thing 2'])
     //* left side of use state is to show the DATA being Stored! ex. "things"
     //* right side of use state variable is a function to change/manipulate the DATA being stored! ex. "setThings"
     console.log(things);
