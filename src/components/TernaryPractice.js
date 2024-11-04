@@ -6,7 +6,7 @@ function TernaryPractice() {
     const murderName = "Jim Crawford"
 
 
-
+    //? LEFT SIDE IS TRUE VALUE and right side is False value
     let answer = murderIf ? "Yes" : "No"
     let styleCondition = murderIf ? "col-12" : "col-1"
 

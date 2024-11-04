@@ -66,8 +66,28 @@ function ComplexObjects() {
         lastName: "Doe",
         phone: "+1 (555) 555-5555",
         email: "jDoe42@yahoo.com",
-        isFavorite: true
+        isFavorite: true,
+        age: 18
     })
+
+    function toggleFavorite() {
+        //? ... spread operator does the same as arrays.
+        //? ...prevcontact grabs entire object being stored in State variable
+        setContact(prevContact => {
+            return {
+                ...prevContact,
+                isFavorite: !prevContact.isFavorite
+                /*
+                    firstName: "John",
+                    lastName: "Doe",
+                    phone: "+1 (555) 555-5555",
+                    email: "jDoe42@yahoo.com",
+                    isFavorite: false
+                */
+            }
+        })
+        console.log(contact)
+    }
 
 
     return (
@@ -80,11 +100,32 @@ function ComplexObjects() {
             <div className="row">
                 <div className="col-12">
                     <h3>{contact.firstName} {contact.lastName}</h3>
-
+                    {/* 
+                        //? contact.isFavorite passing boolean value
+                        //? "colored" is the new props name
+                        //? handleClick={} is teh way we pass functions to child components and way to call it is by props name (handleClick)
+                    
+                    */}
+                    <ComplexObjectFavorite colored={contact.isFavorite} handleClick={toggleFavorite}/>
                     <p>{contact.phone}</p>
                     <p>{contact.email}</p>
                 </div>
             </div>
+        </div>
+    )
+}
+
+function ComplexObjectFavorite(props) {
+    console.log(props)
+    
+    let favorite = props.colored ? "favoriteTrue" : "favoriteFalse";
+
+    return(
+        <div>
+            {/* //? TERNARY Operator can be used inside classNames as well!
+                //!Don't forget about the template literals to be able to write other classNames insde
+            */}
+            <div onClick={props.handleClick} className={`text-center ${favorite}`}>X</div>
         </div>
     )
 }
